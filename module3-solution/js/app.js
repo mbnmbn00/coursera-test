@@ -41,13 +41,15 @@
         url: (ApiBasePath + "/menu_items.json")
       }).then(function (result) {
         var foundItems = [];
+        if (searchTerm === "") {
+          return foundItems;
+        }
         for (var i = 0; i < result.data.menu_items.length; i++) {
           var description = result.data.menu_items[i].description; 
           if (description.toLowerCase().indexOf(searchTerm) !== -1) {
             foundItems.push(result.data.menu_items[i])
           }
         }
-        console.log(foundItems);
         return foundItems;
       })
     };
