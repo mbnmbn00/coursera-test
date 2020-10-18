@@ -1,0 +1,8 @@
+<ol>
+  <li 
+    class="hover"
+    data-ng-repeat="item in $ctrl.items"
+    ui-sref="itemDetails({category: item.short_name})">
+    <a href="#">{{ item.name }} ({{ item.short_name }})</a>
+  </li>
+</ol>
