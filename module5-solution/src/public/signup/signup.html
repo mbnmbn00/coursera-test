@@ -1,0 +1,58 @@
+<h1>Sign Up</h1>
+
+<fieldset>
+  <form name='regForm' novalidate>
+
+    <input type="text" name="firstName" placeholder="First name"
+    ng-model="SignUpCtrl.user.firstName"
+    required>
+    <span
+      ng-if="regForm.firstName.$error.required && regForm.firstName.$touched">
+      First name is required
+    </span>
+    <br>
+
+    <input type="text" name="lastName" placeholder="Last name"
+    ng-model="SignUpCtrl.user.lastName"
+    required>
+    <span
+      ng-if="regForm.lastName.$error.required && regForm.lastName.$touched">
+      Last name is required
+    </span>
+    <br>
+
+    <input type="email" name="email" placeholder="Email"
+    ng-model="SignUpCtrl.user.email"
+    required>
+    <span ng-if="regForm.email.$invalid && regForm.email.$touched">
+      Must be a valid email address: handle@domain format
+    </span>
+    <br>
+
+    <input type="text" name="phone" placeholder="Phone ###-###-####"
+    ng-model="SignUpCtrl.user.phone"
+    pattern="(\d{3})-(\d{3})-(\d{4})">
+    <span ng-if="regForm.phone.$invalid && regForm.phone.$touched">
+      Phone must be in the format ###-###-####.
+    </span>
+    <br>
+
+    <input type="text" name="favorite" placeholder="Your favorite dish (short_name)"
+    ng-model="SignUpCtrl.user.favorite"
+    required>
+    <span
+      ng-if="regForm.favorite.$error.required && regForm.favorite.$touched">
+      Favorite dish is required
+    </span>
+    <br>
+
+    <button
+    ng-disabled="regForm.$invalid"
+    ng-click="SignUpCtrl.validate()">Submit</button>
+
+    <br>
+    <span ng-if="SignUpCtrl.result === false">No such menu number exists</span>
+    <span ng-if="SignUpCtrl.result">Your information has been saved</span>
+
+  </form>
+  </fieldset>

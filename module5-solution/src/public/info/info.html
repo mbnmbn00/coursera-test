@@ -1,0 +1,23 @@
+<h1>My Info</h1>
+
+<span ng-if="(InfoCtrl.userInfo | json) == '{}'">Not Signed Up Yet. <a data-ui-sref="public.signup">Sign up Now!</a></span>
+
+<div ng-if="(InfoCtrl.userInfo | json) != '{}'">
+<ul>
+  <li>First Name: {{ InfoCtrl.userInfo.firstName }}</li>
+  <li>Last Name: {{ InfoCtrl.userInfo.lastName }}</li>
+  <li>E-mail: {{ InfoCtrl.userInfo.email }}</li>
+  <li>Phone number: {{ InfoCtrl.userInfo.phone }}</li>
+</ul>
+
+<b>Your favorite dish</b>
+<img class="img-responsive"
+     width="250"
+     height="150"
+     ng-src="{{InfoCtrl.basePath}}/images/{{InfoCtrl.result.short_name}}.jpg"
+     alt="{{InfoCtrl.result.name}}">
+<ul>
+  <li>Name: {{ InfoCtrl.result.name }}</li>
+  <li>Description: {{InfoCtrl.result.description }}</li>
+</ul>
+</div>
